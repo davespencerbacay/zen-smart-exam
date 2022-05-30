@@ -18,6 +18,7 @@ body {
 .header-container h5,
 .header-container p {
   margin-bottom: 0;
+  color: #2e384d;
 }
 
 .header-container .taker-container {
@@ -55,4 +56,8 @@ pre {
 pre code {
   padding: 10px;
   color: #333;
+}
+
+button.danger {
+  background: #e84a50;
 }

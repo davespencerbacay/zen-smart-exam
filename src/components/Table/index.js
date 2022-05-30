@@ -4,7 +4,8 @@ import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 import TablePagination from "./TablePagination";
 import TableSearch from "./TableSearch";
-import { searchString } from "../../helpers";
+import TableModal from "./TableModal";
+import { searchString, getRandomInt } from "../../helpers";
 
 const tableHeader = [{ name: "ID" }, { name: "User ID" }, { name: "Title" }];
 
@@ -20,6 +21,11 @@ const Table = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const [search, setSearch] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const closeHandler = () => setShowModal(false);
+  const showHandler = () => setShowModal(true);
+
+  const [todoName, setTodoName] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,9 +46,24 @@ const Table = () => {
     }
   }, [search]);
 
+  const deleteHandler = (id) => {
+    setTableData((data) => data.filter((x) => x.id != id));
+  };
+
+  const addHandler = () => {
+    const todo = {
+      title: todoName,
+      id: getRandomInt(),
+      userId: getRandomInt(),
+    };
+    let newTodo = [todo].concat(tableData);
+    setTableData(newTodo);
+  };
+
   const tableBodyProps = {
     tableData: currentTask,
     isLoading,
+    onDelete: deleteHandler,
   };
 
   const tablePaginationProps = {
@@ -51,8 +72,18 @@ const Table = () => {
     paginate: { handler: paginate, page: currentPage },
   };
 
+  const tableModalProps = {
+    showModal,
+    closeHandler,
+    todoName,
+    setTodoName,
+    addHandler,
+  };
+
   return (
     <div className="table-container">
+      <button onClick={() => setShowModal(true)}>Add</button>
+      <TableModal {...tableModalProps} />
       <TableSearch
         onSearch={(value) => {
           setSearch(value);
