@@ -82,7 +82,12 @@ const Table = () => {
 
   return (
     <div className="table-container">
-      <button onClick={() => setShowModal(true)}>Add</button>
+      <button
+        onClick={() => setShowModal(true)}
+        className="btn btn-outline-success btn-sm"
+      >
+        Add
+      </button>
       <TableModal {...tableModalProps} />
       <TableSearch
         onSearch={(value) => {

@@ -21,10 +21,13 @@ const TableModal = (props) => {
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={closeHandler}>
+        <Button
+          className="btn btn-outline-success btn-sm"
+          onClick={closeHandler}
+        >
           Close
         </Button>
-        <Button variant="primary" onClick={addHandler}>
+        <Button className="btn btn-outline-success btn-sm" onClick={addHandler}>
           Save Changes
         </Button>
       </Modal.Footer>

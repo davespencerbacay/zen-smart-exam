@@ -39,25 +39,195 @@ body {
   display: flex;
   justify-content: center;
 }
+.table-container .pagination-container .page-item.active .page-link {
+  border: 1px solid #0b6bf2;
+  box-shadow: 0 0 10px 5px #2e5bff33;
+  background-color: #0b6bf2;
+}
 
 /* defaults */
-pre {
-  padding: 0;
-  margin: 0;
-  overflow: auto;
-  overflow-y: hidden;
-  font-size: 12px;
-  line-height: 20px;
-  background: #efefef;
-  display: inline;
-  background: rgb(197, 197, 197);
-  padding: 2px 5px;
+.panels-container .panel-sample {
+  display: flex;
+  background-color: #e9edf9;
+  padding: 20px 50px;
 }
-pre code {
-  padding: 10px;
-  color: #333;
+.panels-container .panel-sample .panel-item {
+  border-radius: 6px;
+  height: 150px;
+  width: 150px;
+  background-color: #fff;
+  margin: 0 20px;
+}
+.panels-container .panel-sample .panel-item.active {
+  border: 1px solid #0b6bf2;
+  box-shadow: 0 0 10px 5px #2e5bff33;
+}
+.panels-container .panel-sample .panel-item.unselected {
+  border: 1px solid #0243eb;
 }
 
-button.danger {
-  background: #e84a50;
+.buttons-container {
+  margin-top: 20px;
+  margin-bottom: 200px;
+}
+.buttons-container .row > div {
+  margin-top: 20px;
+}
+.buttons-container .row > div > h5 {
+  margin-bottom: 0;
+}
+.buttons-container .button-sample .d-flex .btn {
+  margin-right: 10px;
+}
+.buttons-container .button-sample .btn {
+  display: block;
+  margin-top: 10px;
+}
+
+.btn {
+  color: #fff !important;
+  padding: 6px 20px !important;
+}
+.btn-sm {
+  padding: 3px 20px !important;
+}
+.btn:active,
+.btn:focus {
+  box-shadow: none !important;
+}
+.btn-outline-danger.btn.disabled,
+.btn.disabled {
+  opacity: 0.2 !important;
+}
+
+.btn-outline-primary.active,
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus {
+  background-color: #dae9fc !important;
+}
+.btn.btn-outline-primary {
+  background-color: #fff;
+  color: #0a6af3 !important;
+}
+.btn.btn-primary {
+  background-color: #0a6af3;
+}
+.btn-primary.active,
+.btn-primary:focus {
+  background-color: #0242eb;
+}
+
+.btn-outline-danger.active,
+.btn-outline-danger:hover,
+.btn-outline-danger:active,
+.btn-outline-danger:focus {
+  background-color: #fbe4e4 !important;
+}
+.btn.btn-outline-danger {
+  background-color: #fff;
+  color: #e94a4e !important;
+}
+.btn.btn-danger {
+  background-color: #e94a4e;
+}
+.btn-danger.active,
+.btn-danger:focus {
+  background-color: #dd262a;
+}
+
+.btn-outline-success.active,
+.btn-outline-success:hover,
+.btn-outline-success:active,
+.btn-outline-success:focus {
+  background-color: #dff5f3 !important;
+}
+.btn.btn-outline-success {
+  background-color: #fff;
+  color: #2cc3a5 !important;
+}
+.btn.btn-success {
+  background-color: #2cc3a5;
+}
+.btn-success.active,
+.btn-success:focus {
+  background-color: #10a781;
+}
+
+.btn-outline-info.active,
+.btn-outline-info:hover,
+.btn-outline-info:active,
+.btn-outline-info:focus {
+  background-color: #d9f7f9 !important;
+}
+.btn.btn-outline-info {
+  background-color: #fff;
+  color: #00c1d3 !important;
+}
+.btn.btn-info {
+  background-color: #00c1d3;
+}
+.btn-info.active,
+.btn-info:focus {
+  background-color: #00a7c1;
+}
+
+.btn-outline-warning.active,
+.btn-outline-warning:hover,
+.btn-outline-warning:active,
+.btn-outline-warning:focus {
+  background-color: #fff7e1 !important;
+}
+.btn.btn-outline-warning {
+  background-color: #fff;
+  color: #f5c136 !important;
+}
+.btn.btn-warning {
+  background-color: #f5c136;
+}
+.btn-warning.active,
+.btn-warning:focus {
+  background-color: #f3a718;
+}
+
+.dropdown-menu.show {
+  padding: 0;
+  max-height: 100px;
+  overflow-y: scroll;
+  border: 1px solid #e9edff;
+}
+.dropdown-menu a {
+  border-bottom: 1px solid #e9edff;
+}
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+.dropdown-menu::-webkit-scrollbar-track {
+  background: #f2f7fd;
+}
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #d1d3d8;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+.table-sample .btn {
+  width: 100%;
+  margin-right: 10px;
+}
+.table {
+  border: 1px solid #ffffff;
+  border-collapse: collapse;
+  color: #96a5b7 !important;
+}
+.table td {
+  color: #96a5b7 !important;
+  font-family: "Rubik", sans-serif !important;
+  vertical-align: middle;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #eff3ff;
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #fefefe;
 }

@@ -18,7 +18,12 @@ const TableBody = (props) => {
               <td>{data.userId}</td>
               <td>{data.title}</td>
               <td>
-                <button onClick={() => onDelete(data.id)}>Delete</button>
+                <button
+                  onClick={() => onDelete(data.id)}
+                  className="btn btn-sm btn-outline-danger"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           );
