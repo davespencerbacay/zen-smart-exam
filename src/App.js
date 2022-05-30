@@ -1,7 +1,17 @@
 import React from "react";
+import Header from "./components/Header";
+
+export const applicantBriefInfo = {
+  name: "Dave Spencer Bacay",
+  dateTaken: "May 20, 2022",
+};
 
 const App = () => {
-  return <div className="App">test</div>;
+  return (
+    <React.Fragment>
+      <Header />
+    </React.Fragment>
+  );
 };
 
 export default App;
