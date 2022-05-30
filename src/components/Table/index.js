@@ -10,15 +10,14 @@ const Table = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchData = async () => {
+      setIsLoading(true);
       const response = await fetch(process.env.REACT_APP_TODO_LIST_URI);
       const data = await response.json();
       setTableData(data);
+      setIsLoading(false);
     };
     fetchData();
-
-    setIsLoading(false);
   }, []);
 
   const tableBodyProps = {
