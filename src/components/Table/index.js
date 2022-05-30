@@ -3,6 +3,8 @@ import { Table as ReactTable } from "react-bootstrap";
 import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 import TablePagination from "./TablePagination";
+import TableSearch from "./TableSearch";
+import { searchString } from "../../helpers";
 
 const tableHeader = [{ name: "ID" }, { name: "User ID" }, { name: "Title" }];
 
@@ -17,6 +19,8 @@ const Table = () => {
   const currentTask = tableData?.slice(indexOfFirstTask, indexOfLastTask);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -25,8 +29,16 @@ const Table = () => {
       setTableData(data);
       setIsLoading(false);
     };
-    fetchData();
-  }, []);
+
+    if (search) {
+      const filteredData = tableData.filter((data) =>
+        searchString(data.title, search)
+      );
+      setTableData(filteredData);
+    } else {
+      fetchData();
+    }
+  }, [search]);
 
   const tableBodyProps = {
     tableData: currentTask,
@@ -41,6 +53,12 @@ const Table = () => {
 
   return (
     <div className="table-container">
+      <TableSearch
+        onSearch={(value) => {
+          setSearch(value);
+          setCurrentPage(1);
+        }}
+      />
       <ReactTable responsive>
         <TableHeader tableHeader={tableHeader} />
         <TableBody {...tableBodyProps} />

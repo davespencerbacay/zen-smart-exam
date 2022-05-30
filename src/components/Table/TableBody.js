@@ -1,31 +1,36 @@
 import React from "react";
 
-const TableLoading = (props) => {
+const TableIndicator = (props) => {
   return (
-    <tr>
-      <td>Loading ...</td>
-    </tr>
+    <tbody>
+      <tr colSpan={props.colSpan}>
+        <td>{props.mode === "loading" ? "Loading ..." : "No data found."}</td>
+      </tr>
+    </tbody>
   );
 };
 
 const TableBody = (props) => {
   const { tableData, isLoading } = props;
-  console.log(tableData);
 
-  if (isLoading) return <TableLoading colSpan={props.tableData.length} />;
-  return (
+  if (isLoading) return <TableIndicator colSpan={5} mode="loading" />;
+
+  return tableData && tableData.length === 0 ? (
+    <TableIndicator colSpan={4} mode="noData" />
+  ) : (
     <tbody>
-      {isLoading && <TableLoading colSpan={props.tableData.length} />}
-      {tableData &&
-        tableData.map((data) => {
-          return (
-            <tr key={data.id}>
-              <td>{data.id}</td>
-              <td>{data.userId}</td>
-              <td>{data.title}</td>
-            </tr>
-          );
-        })}
+      {tableData.map((data) => {
+        return (
+          <tr key={data.id}>
+            <td>{data.id}</td>
+            <td>{data.userId}</td>
+            <td>{data.title}</td>
+            <td>
+              <button>Delete</button>
+            </td>
+          </tr>
+        );
+      })}
     </tbody>
   );
 };
